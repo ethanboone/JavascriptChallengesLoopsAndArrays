@@ -4,6 +4,10 @@
 // output: ['is', 'a', 'split', 'sentence.', 'This']
 
 function rearranger(arr) {
+    let arrIndex = arr[0]
+    arr.splice(0, 1,)
+    arr.push(arrIndex)
+    return arr
 }
 
 
@@ -16,6 +20,35 @@ function rearranger(arr) {
 // output: 42
 
 function largestNum(arr) {
+    let arrayLength = arr.length
+    arr.sort()
+    let indexObject;
+    for (let i = 0; i < arrayLength; i++) {
+        let index = arr[i]
+        let duplicateCount = 0
+        let indexOfDuplicate = []
+        for (let a = 1; a < arrayLength; a++) {
+            let duplicateIndex = arr[a]
+            let duplicateNumber = 1
+            let duplicates;
+            if (index == duplicateIndex) {
+                duplicateCount++
+                duplicateNumber++
+                duplicates = `${index}: ${duplicateNumber}, `
+                indexOfDuplicate.push(arr[a])
+                indexObject += `${duplicates}`
+            }
+            console.log(duplicates)
+        }
+        console.log(indexOfDuplicate)
+        if (i == arrayLength - 1) {
+            arr.splice(indexOfDuplicate[i], duplicateCount, indexObject)
+        }
+
+    }
+
+    console.log(arr)
+    return arr[arrayLength - 1]
 }
 
 
